@@ -1,0 +1,82 @@
+/* multiline tabs */
+#tabs-container {
+    height: auto !important;
+}
+.resize {
+    display: block !important;
+}
+.tab-strip {
+    display: block;
+    position: relative;
+ /* border-style: solid; */
+ /* border-width: 1px; */
+ /* border-color: green; */
+}
+.tab-strip > span {
+    display: inline-block;
+}
+.tab-strip > span > .tab-position {
+    left: 0px !important;
+    position: relative;
+    height: 30px !important;
+    width: auto !important;
+}
+.tab-strip > span > .tab-position:first-child{
+    left: 30px !important;
+}
+.tab-strip > span > .tab-position > .tab:not(.pinned){
+    width: 220px !important;
+ left: 0px !important;
+    position: relative;
+    height: 30px !important;
+    /* width: auto !important; */
+/*
+ border-style: solid;
+ border-width: 1px;
+ border-color: lightgrey;
+*/
+}
+.tab-strip > span > .tab-position > .tab.pinned{
+    width: 30px !important;
+ left: 0px !important;
+    position: relative;
+    height: 30px !important;
+    /* width: auto !important; */
+ border-style: none;
+}
+.toolbar-tabbar {
+ /* width: 30px; */
+ /* border-style: solid; */
+ /* border-width: 1px; */
+ /* border-color: lime; */
+}
+.toolbar-tabbar > .newtab {
+ top: 0px !important;
+ left: 0px !important;
+    position: absolute !important;
+ /* border-style: solid; */
+ /* border-width: 1px; */
+ /* border-color: red; */
+}
+
+
+
+
+
+
+/* Equal width tabs without shrinking */
+.tab-strip > span > .tab-position > .tab:not(.pinned){
+  width: 100px !important;
+}
+.tab-strip > span > .tab-position > .tab.pinned{
+  width: 100px !important;
+}
+.tab-strip > span > .tab-position > .tab.pinned > .tab-header > span.title:before {
+  content: '*';
+  font-family: "Courier New", serif;
+  margin-bottom: -20px;
+}
+#tabs-container .tab.tab-small.tab-mini .tab-header .title, #tabs-container .tab.pinned.tab-mini .tab-header .title {
+ display: flex !important;
+}
+
