@@ -73,9 +73,9 @@
 }
 .tab-strip > span > .tab-position > .tab.pinned > .tab-header > span.title:before {
   content: '🔒\00a0\00a0\00a0'; /* \00a0 = &nbsp; */
-  ---content: '📌\00a0'; /* \00a0 = &nbsp; */
+  ---content: '📌\00a0\00a0\00a0'; /* \00a0 = &nbsp; */
   color: gray;
-  filter: grayscale(100%); /* preved colored emodji lock */
+  filter: grayscale(100%); /* prevent colored emodji lock */
   font-size: 5px;
 }
 #tabs-container .tab.tab-small.tab-mini .tab-header .title, #tabs-container .tab.pinned.tab-mini .tab-header .title {
