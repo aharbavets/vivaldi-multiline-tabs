@@ -1,6 +1,6 @@
 /* multiline tabs */
 
-.tabs-tabbar-container {
+#tabs-tabbar-container {
     height: auto !important;
 }
 
