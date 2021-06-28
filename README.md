@@ -1,5 +1,5 @@
 Adding Style
-============⁣
+============
 
 Vivaldi 2.6 and above:
 
