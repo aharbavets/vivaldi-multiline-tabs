@@ -1,86 +1,96 @@
-/* multiline tabs */
+/*
+  Multiple Row Tabs - Created by @alexander.gorbovets. Version 2021.11.30.
+  Based on work of and inspired by @nomadic, @fpdragon, @potmeklecbohdan, @hababr, @barbudo2005.
+*/
 
-#tabs-tabbar-container {
+/* Configuration */
+:root {
+    /* That will be the minimum width of a tab. You can adjust the number as you like. */
+    --mrt-min-tab-width: 100px;
+    --mrt-min-pinned-tab-width: 100px;
+}
+
+/* Changes to allow multi row tab bar */
+#browser:is(.tabs-top, .tabs-bottom) #tabs-tabbar-container {
     height: auto !important;
 }
 
-#tabs-container {
-    height: auto !important;
+/* Fix overflow issue on secondary bar */
+#browser:is(.tabs-top, .tabs-bottom) #tabs-subcontainer {
+    flex-basis: unset !important;
 }
-.resize {
+
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip > span,
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip > .tab-position {
+    display: inline-block;
+    position: relative;
+}
+
+#browser:is(.tabs-top, .tabs-bottom) .tab-position.tab-yield-space {
+    --PositionX: 0px !important;
+    height: 30px !important;
+}
+
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip > span > .tab-position {
+    --PositionX: 0px !important;
+    height: 30px !important;
+}
+
+/* Regular tabs */
+#browser:is(.tabs-top, .tabs-bottom) .tab-position.tab-yield-space:not([style*="--Width:31px"]),
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip > span > .tab-position:not([style*="--Width:31px"]) {
+    min-width: min(var(--mrt-min-tab-width), var(--Width)*99999) !important;
+}
+
+
+/* Pinned tabs */
+#browser:is(.tabs-top, .tabs-bottom) .tab-position.tab-yield-space[style*="--Width:31px"],
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip > span > .tab-position[style*="--Width:31px"] {
+    min-width: min(var(--mrt-min-pinned-tab-width), var(--Width)*99999) !important;
+}
+
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip > span > .tab-position,
+.toolbar-tabbar > .newtab {
+    position: static;
+}
+
+/* Keep title visible on tabs */
+#browser:is(.tabs-top, .tabs-bottom) .tab.tab-small .tab-header .title {
+    display: flex !important;
+}
+
+/* Keep tab stack counter visible  */
+#browser:is(.tabs-top, .tabs-bottom) .tab-position .tab.tab-small .stack-counter {
     display: block !important;
 }
-.tab-strip {
-    display: block;
-    position: relative;
- /* border-style: solid; */
- /* border-width: 1px; */
- /* border-color: green; */
-}
-.tab-strip > span {
-    display: inline-block;
-}
-.tab-strip > span > .tab-position {
-    left: 0 !important;
-    position: relative;
-    height: 30px !important;
-    width: auto !important;
-    transform: none !important;
-}
-.tab-strip > span > .tab-position:first-child{
-    left: 30px !important;
-}
-.tab-strip > span > .tab-position > .tab:not(.pinned){
-    width: 220px !important;
- left: 0px !important;
-    position: relative;
-    height: 30px !important;
-    /* width: auto !important; */
-/*
- border-style: solid;
- border-width: 1px;
- border-color: lightgrey;
-*/
-}
-.tab-strip > span > .tab-position > .tab.pinned{
-    width: 30px !important;
- left: 0px !important;
-    position: relative;
-    height: 30px !important;
-    /* width: auto !important; */
- border-style: none;
-}
-.toolbar-tabbar {
-    position: initial;
- /* width: 30px; */
- /* border-style: solid; */
- /* border-width: 1px; */
- /* border-color: lime; */
-}
-.toolbar-tabbar > .newtab {
- top: 0px !important;
- left: 0px !important;
- position: absolute !important;
- /* border-style: solid; */
- /* border-width: 1px; */
- /* border-color: red; */
+
+/* Keep tab header style */
+#browser:is(.tabs-top, .tabs-bottom) .tab.tab-small.tab-mini .tab-header,
+#browser:is(.tabs-top, .tabs-bottom) .tab.pinned.tab-mini .tab-header {
+    padding-left: 6px !important;
+    border: none !important;
+    justify-content: normal !important;
+    --Width: max(100%, var(--mrt-min-tab-width));
 }
 
-/* Equal width tabs without shrinking */
-.tab-strip > span > .tab-position > .tab:not(.pinned){
-  width: 100px !important;
+/* Fix width for tab stack border */
+#browser:is(.tabs-top, .tabs-bottom) .tab-strip > span > .tab-position:not([style*="--Width:0px"]) .tab {
+    --Width: max(100%, var(--mrt-min-tab-width));
 }
-.tab-strip > span > .tab-position > .tab.pinned{
-  width: 100px !important;
+
+#browser:not(.alt-tabs, .tabs-left, .tabs-right) .tab-position .tab:hover.tab-small.active .favicon {
+    flex-shrink: 0 !important;
 }
+
 .tab-strip > span > .tab-position > .tab.pinned > .tab-header > span.title:before {
-  content: '🔒\00a0\00a0\00a0'; /* \00a0 = &nbsp; */
-  ---content: '📌\00a0\00a0\00a0'; /* \00a0 = &nbsp; */
-  color: gray;
-  filter: grayscale(100%); /* prevent colored emodji lock */
-  font-size: 5px;
+    content: '🔒\00a0\00a0\00a0'; /* \00a0 = &nbsp; */
+    ---content: '📌\00a0\00a0\00a0'; /* \00a0 = &nbsp; */
+    color: gray;
+    filter: grayscale(100%); /* prevent colored emodji lock */
+    font-size: 5px;
 }
-#tabs-container .tab.tab-small.tab-mini .tab-header .title, #tabs-container .tab.pinned.tab-mini .tab-header .title {
- display: flex !important;
-}
-
