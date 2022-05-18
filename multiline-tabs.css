@@ -7,12 +7,15 @@
 :root {
     /* That will be the minimum width of a tab. You can adjust the number as you like. */
     --mrt-min-tab-width: 100px;
-    --mrt-min-pinned-tab-width: 100px;
+    --mrt-min-pinned-tab-width: 100px;	
+    --mrt-tab-row: 3;
 }
 
 /* Changes to allow multi row tab bar */
 #browser:is(.tabs-top, .tabs-bottom) #tabs-tabbar-container {
-    height: auto !important;
+    height: auto !important;	
+	max-height: calc(30px * var(--mrt-tab-row)) !important;
+	overflow-y: auto;
 }
 
 /* Fix overflow issue on secondary bar */
