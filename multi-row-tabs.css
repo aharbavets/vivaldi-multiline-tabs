@@ -31,16 +31,6 @@
     position: relative;
 }
 
-#browser:is(.tabs-top, .tabs-bottom) .tab-position.tab-yield-space {
-    --PositionX: 0px !important;
-    height: 30px !important;
-}
-
-#browser:is(.tabs-top, .tabs-bottom) .tab-strip > span > .tab-position {
-    --PositionX: 0px !important;
-    height: 30px !important;
-}
-
 /* Regular tabs */
 #browser:is(.tabs-top, .tabs-bottom) .tab-position.tab-yield-space:not([style*="--Width:31px"]),
 #browser:is(.tabs-top, .tabs-bottom) .tab-strip > span > .tab-position:not([style*="--Width:31px"]) {
