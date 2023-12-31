@@ -1,1 +1,1 @@
-mklink /h ..\multiline-tabs.css multiline-tabs.css
+mklink /h ..\multi-row-tabs.css multi-row-tabs.css
