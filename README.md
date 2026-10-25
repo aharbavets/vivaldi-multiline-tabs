@@ -18,5 +18,5 @@ Made by
 
 Built by Aliaksandr Harbavets, a solo developer shipping small, privacy-first apps.
 
-* [harbavets.dev](https://harbavets.dev) — the developer: other open-source tools, client work and how to get in touch.
-* [shureapps.com](https://shureapps.com) — the products, on the App Store and the Mac.
+* [shureapps.com](https://shureapps.com) — the apps and games, on the App Store and the Mac.
+* [harbavets.dev](https://harbavets.dev) — the developer: client work, and how to get in touch.
