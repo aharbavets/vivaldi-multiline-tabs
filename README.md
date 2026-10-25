@@ -12,3 +12,11 @@ Vivaldi 2.6 and above:
 * Restart Vivaldi to see them in effect
 
 
+
+Made by
+=======
+
+Built by Aliaksandr Harbavets, a solo developer shipping small, privacy-first apps.
+
+* [harbavets.dev](https://harbavets.dev) — the developer: other open-source tools, client work and how to get in touch.
+* [shureapps.com](https://shureapps.com) — the products, on the App Store and the Mac.
